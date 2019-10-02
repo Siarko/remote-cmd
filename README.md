@@ -6,5 +6,5 @@ Celem systemu jest udostępnienie interfejsu do zarządzania wszystkimi hostami 
 
 To repozytorium (remote-cmd) zawiera kod aplikacji webowej, php oraz skryptów php backendu. 
 ## Serwer websocket
-Lokalizacja: /servers/ws_server.php
+Lokalizacja: `/servers/ws_server.php`
 Serwer można włączyć ręcznie poprzez `php ws_server.php start` lub z pozycji konsoli po zalogowaniu
