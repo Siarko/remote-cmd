@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="streamContainer">
+            <video id="stream" width="400" height="300"></video>
+            <div class="streamOverlay" id="streamOverlay"></div>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary form-control" onclick="PublicBinding.startStream(this)">START STREAM</button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Rozdzielczość</div>
+            <div class="col">
+                <span id="streamWidth"></span> X <span id="streamHeight"></span>
+            </div>
+            <div class="col">
+                <input id="ex1" type="text"/>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Kompresja klatki</div>
+            <div class="col">
+                <span id="frameCompression"></span>
+            </div>
+            <div class="col">
+                <input id="ex2" type="text"/>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Liczba ramek w klipie</div>
+            <div class="col">
+                <input title="FPC" id="framesPerClip" type="number"/>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+            <div class="col">Opóźnienie zapisu</div>
+            <div class="col"><span id="clipCreateTime"></span></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">Interwał pomiędzy fragmentami</div>
+            <div class="col"><span id="lastClipInterval"></span></div>
+        </div>
+    </div>
+</div>

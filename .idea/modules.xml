@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../mydevil_home/.idea/mydevil_home.iml" filepath="$PROJECT_DIR$/../mydevil_home/.idea/mydevil_home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/remoteCmdV2.iml" filepath="$PROJECT_DIR$/.idea/remoteCmdV2.iml" />
+    </modules>
+  </component>
+</project>

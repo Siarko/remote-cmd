@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="mydevil">
+    <serverData>
+      <paths name="Ankiety_server_ftp">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="ezd">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="ezd-einstytucja">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="medrek">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mkorbal_ezd">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mydevil">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/domains/siarko.pl/public_html/remote_cmd" local="$PROJECT_DIR$" web="/remote_cmd" />
+            <mapping deploy="/domains/siarko.pl/public_html" local="$PROJECT_DIR$/../mydevil_home" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/assets/node_modules" />
+            <excludedPath local="true" path="$PROJECT_DIR$/app/lib/P3rc1val/Deployment.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/streaming" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="mydevil_sftp">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="pko">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="siarko.pl_hostujemy">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/remote_cmd" local="$PROJECT_DIR$" web="/remote_cmd" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="siarko.pl_zenbox">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="tapetomat">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="xampp">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

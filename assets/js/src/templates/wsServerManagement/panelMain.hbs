@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">Stan serwera</div>
+    <div class="col">
+        <span class="badge badge-{{inlineIf serverState true "success" "danger"}}">
+            {{inlineIf serverState true "AKTYWNY" "NIEAKTYWNY"}}
+        </span>
+        {{#if serverState}}
+            <span class="badge badge-info">
+                {{serverPid}}
+            </span>
+        {{/if}}
+    </div>
+    <div class="col">
+        <button class="btn btn-primary" onclick="PublicBinding.toggleWsServerState(this)">
+            {{inlineIf serverState true "WYŁĄCZ" "WŁĄCZ"}}
+        </button>
+    </div>
+</div>

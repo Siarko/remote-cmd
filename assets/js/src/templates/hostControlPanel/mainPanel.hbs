@@ -1,0 +1,22 @@
+{{#if host}}
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="control_tabs"></nav>
+    <div class="card mt-1">
+        <div id="tab_info">
+            {{> infoPanel}}
+        </div>
+        <div id="tab_cmd">
+            {{> cmdPanel}}
+        </div>
+        <div id="tab_stream">
+            {{> streamPanel}}
+        </div>
+        <div id="tab_files">
+            {{> filesPanel}}
+        </div>
+    </div>
+
+{{else}}
+    <div class="alert alert-secondary" role="alert">
+        Brak połączonego hosta
+    </div>
+{{/if}}

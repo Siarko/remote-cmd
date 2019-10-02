@@ -1,0 +1,22 @@
+<div class="collapse navbar-collapse">
+    <div class="navbar-nav">
+        <a class="btn nav-item nav-link {{inlineIf activeTab "info" "active" '' }}"
+           onclick="PublicBinding.controlPanelTab('info')"
+        >
+            Info
+        </a>
+        <a class="btn nav-item nav-link {{inlineIf activeTab "cmd" "active" '' }}"
+           onclick="PublicBinding.controlPanelTab('cmd')"
+        >
+            CMD
+        </a>
+        <a class="btn nav-item nav-link {{inlineIf activeTab "stream" "active" '' }}"
+           onclick="PublicBinding.controlPanelTab('stream')">
+            Kontrola strumieniem
+        </a>
+        <a class="btn nav-item nav-link {{inlineIf activeTab "files" "active" '' }}"
+           onclick="PublicBinding.controlPanelTab('files')">
+            Przesłane pliki
+        </a>
+    </div>
+</div>

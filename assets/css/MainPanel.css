@@ -1,0 +1,69 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background: #4b4b4b;
+}
+
+.font-1{
+    font-size: 1em;
+}
+.font-2{
+    font-size: 2em;
+}
+.font-3{
+    font-size: 3em;
+}
+.font-4{
+    font-size: 4em;
+}
+.font-5{
+    font-size: 5em;
+}
+
+.disabled{
+    cursor: wait;
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.streamContainer{
+    position: relative;
+}
+.streamOverlay{
+    position: absolute;
+    top: 0;
+    background-image: none;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 5em;
+}
+.streamOverlay.tvTestScreen{
+    background-image: url("../images/tvTestScreen.jpg");
+}
+.streamOverlay.playing{
+    background: transparent;
+    cursor: pointer;
+}
+.streamOverlay.playing:hover > i.fa-keyboard{
+    display: inherit !important;
+}
+
+#console_window{
+    border: 2px solid #3e3e3e;
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+#console_window:not(:focus):hover{
+    cursor: pointer;
+    border: 2px solid #b8b8b8;
+}
+

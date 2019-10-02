@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dc430693-2184-4881-82d3-3afdd8a9f887" name="siarko.pl_hostujemy" url="http://54.38.192.100">
+        <fileTransfer host="54.38.192.100" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="6825edfc-cde8-4737-a588-5a1abc1adad0" name="mydevil" url="http://s9.mydevil.net">
+        <fileTransfer host="s9.mydevil.net" port="21" accessType="FTPS">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="6954af4d-da2b-4b6f-9b51-eef74c0a9321" name="mydevil_sftp" url="http://s9.mydevil.net">
+        <fileTransfer host="s9.mydevil.net" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

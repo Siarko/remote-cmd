@@ -1,0 +1,27 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@forevolve/bootstrap-dark": "^1.0.0-alpha.774",
+    "bootstrap": "^4.3.1",
+    "bootstrap-slider": "^10.6.2",
+    "css-loader": "^3.2.0",
+    "jquery": "^3.4.1",
+    "style-loader": "^1.0.0"
+  },
+  "devDependencies": {
+    "handlebars": "^4.1.2",
+    "handlebars-loader": "^1.7.1",
+    "path": "^0.12.7",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx webpack --watch --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
