@@ -16,6 +16,7 @@ class ResolverEndException extends \Exception {
     private $resolver;
 
     function __construct(Resolver $resolver) {
+        parent::__construct('Routing resolver called');
         $this->resolver = $resolver;
     }
 

@@ -1,5 +1,5 @@
 <?php
-/* @var $this \P3rc1val\TemplateParser*/
+/* @var $this \P3rc1val\templates\TemplateParser*/
     $this->addCssFile('assets/css/MainPanel');
 ?>
 

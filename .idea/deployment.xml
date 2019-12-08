@@ -47,6 +47,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/assets/node_modules" />
             <excludedPath local="true" path="$PROJECT_DIR$/app/lib/P3rc1val/Deployment.php" />
             <excludedPath local="true" path="$PROJECT_DIR$/streaming" />
+            <excludedPath local="true" path="$PROJECT_DIR$/assets/js/src" />
           </excludedPaths>
         </serverdata>
       </paths>

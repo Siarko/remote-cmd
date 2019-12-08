@@ -10,27 +10,38 @@ class Log {
 
     private static $logs = [];
 
+    private static $saveCount = 0;
+
     public static function l($m, $e){
-        global $argc;
+        global $argc, $argv;
         $l = ($e?"ERROR":"INFO");
         self::$logs[] = [
             'l' => $l,
             'm' => $m
         ];
         if($argc == 2){
-            echo("[".$l."] ".$m."\n");
+            //echo("[".$l."] ".$m."\n");
         }
     }
 
     public static function write($file){
+        global $argv, $argc;
+        self::$saveCount++;
+
         $str = '======== LOG '.date("d-m-Y H:i:s")." ========\n";
+        $str .= "PID: ".getmypid()."\n";
+        $str .= 'CMD: '.print_r($argv, true)."\n";
 
         foreach (self::$logs as $log) {
             $str .= "[".$log['l']."] ".$log['m']."\n";
         }
 
         $str .= '======== LOG END ========'."\n";
-        file_put_contents($file, $str, FILE_APPEND);
+        if($argv[1] == "stop" || $argc == 2){
+            echo($str);
+        }else{
+            file_put_contents($file, $str, FILE_APPEND);
+        }
     }
 }
 
@@ -58,7 +69,8 @@ set_error_handler(function($no, $ms){
 
 register_shutdown_function(function(){
     chdir(__DIR__);
-    //Log::write("WEBSOCKET.log");
+    mylog("Saving log cause: shutdown");
+    Log::write("WEBSOCKET.log");
 });
 
 require_once('vendor/autoload.php');
@@ -72,6 +84,11 @@ use P3rc1val\websocket\ConnectionRegistry;
 use P3rc1val\websocket\HostManagement;
 use P3rc1val\websocket\RequestHandler;
 use Workerman\Worker;
+
+if($argv[1] === "stop"){
+    Worker::runAll();
+    die();
+}
 
 
 //register direct data passthrough client <=> host

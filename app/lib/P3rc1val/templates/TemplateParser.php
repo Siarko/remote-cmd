@@ -6,7 +6,7 @@
  * Time: 00:15
  */
 
-namespace P3rc1val;
+namespace P3rc1val\templates;
 
 class TemplateParser {
 
