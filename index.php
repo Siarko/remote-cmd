@@ -4,6 +4,8 @@ session_start();
 use frontend\actions\EntryActions;
 
 use frontend\actions\HostApiActions;
+use frontend\actions\HostDataActions;
+use frontend\actions\JarActions;
 use frontend\actions\StreamActions;
 use frontend\actions\WsServerActions;
 use P3rc1val\auth\User;
@@ -44,6 +46,8 @@ $router->get('^logout$', EntryActions::logout($user));
 $router->get('^home$', EntryActions::home($pageTemplate, $user));
 $router->get('^$', EntryActions::home($pageTemplate, $user));
 
+$router->get('^getjar$', JarActions::get());
+
 $router->get('^hostapi/isrunning$', HostApiActions::isRunning());
 $router->get('^hostapi/queryactivity$', HostApiActions::queryActivity());
 $router->post('^hostapi/upload$', HostApiActions::upload());
@@ -52,6 +56,7 @@ $router->get('^stream/clip$', StreamActions::clip($user));
 
 $router->get('^api/wsserver/state$', WsServerActions::getState($user));
 $router->get('^api/wsserver/togglestate$', WsServerActions::toggleState($user));
+$router->post('^api/host/$hostId$', HostDataActions::setCustomName($user));
 
 
 $router->get('.*', function() use ($pageTemplate){

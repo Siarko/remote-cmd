@@ -28,6 +28,11 @@ abstract class AbstractActions {
         return $this->requestData->$key;
     }
 
+    protected function getPostData($key = null){
+        if($key !== null){ return $_POST[$key];}
+        return new ConstructableDynamicObject($_POST);
+    }
+
     protected function getRequestMethod(){
         return $this->requestMethod;
     }

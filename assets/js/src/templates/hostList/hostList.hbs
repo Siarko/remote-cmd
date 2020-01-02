@@ -17,7 +17,11 @@
         {{#each hosts}}
             <tr>
                 <td>{{{short this.id 6}}}</td>
-                <td>{{this.hostname}}</td>
+                {{#if (eq this.custom_name null)}}
+                    <td>{{this.hostname}}</td>
+                {{else}}
+                    <td title="{{this.hostname}}">{{this.custom_name}}</td>
+                {{/if}}
                 <td>
                     {{#[hostList/stateLabel] this}}
                         <span class="label {{this.class}}">{{this.text}}</span>

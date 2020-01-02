@@ -1,0 +1,31 @@
+<div class="alert alert-secondary">
+    Dane hosta
+</div>
+<table class="table table-striped table-hover ">
+    <tbody>
+    <tr>
+        <td>Nazwa własna</td>
+        <td>
+            <div class="input-group">
+                <input type="text" class="form-control" id="custom_host_name" value="{{host.custom_name}}"/>
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-primary"
+                        id="custom_host_name_save"
+                        onclick="PublicBinding.setHostCustomName('custom_host_name', this)">
+                        <i class="fas fa-save"></i>
+                    </button>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Wersja softu</td>
+        <td>{{host.version}}</td>
+    </tr>
+    <tr>
+        <td>Nazwa</td>
+        <td>{{host.hostname}}</td>
+    </tr>
+    </tbody>
+</table>

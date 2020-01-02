@@ -214,7 +214,7 @@ abstract class ModelClass implements IModel, JsonSerializable {
             $condition = $conditions;
         }
         $sql = (new Select('*'))->from(static::getTableName())->where($condition)->parse();
-        $result = DbContext::getContext()->query($sql);
+        $result = DbContext::query($sql);
         return self::parseFindResult($result);
 
     }

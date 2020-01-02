@@ -179,7 +179,7 @@ RequestHandler::registerUserHandler('delete_host_uploaded', function($data){
 
 /* HOST HANDLERS */
 
-RequestHandler::registerHostHandler('host_ready', function($hostId){
+RequestHandler::registerHostHandler('host_ready', function($hostId, $payload){
     /* @var $host Hosts*/
     $host = Hosts::find($hostId)->one();
     if($host->user === null){
@@ -187,7 +187,11 @@ RequestHandler::registerHostHandler('host_ready', function($hostId){
         return null;
     }else{
         $host->host_ready = 1;
-        $r = RequestHandler::notifyUser($host->user, 'host_ready', $host->hostname);
+        $r = RequestHandler::notifyUser($host->user, 'host_ready', [
+            'hostname' => $host->hostname,
+            'custom_name' => $host->custom_name,
+            'payload' => $payload
+        ]);
         if($r){
             return ['succeed' => $host->save()];
         }else{

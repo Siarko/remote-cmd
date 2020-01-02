@@ -7,7 +7,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 import '@forevolve/bootstrap-dark/dist/css/bootstrap-dark.css';
-import 'bootstrap-slider/dist/css/bootstrap-slider.css'
+import 'bootstrap-slider/dist/css/bootstrap-slider.css';
+
+import 'jbox/dist/jBox.all.min.css';
 
 import {RConsole} from "./classes/cmd/console";
 
@@ -19,6 +21,7 @@ import {WsServerPanel} from "./classes/wsServerManagement/wsServerPanel";
 import {Log, Err} from "./classes/debugger";
 import {HostFileBrowser} from "./classes/hostFileBrowser/hostFileBrowser";
 import {StreamKeyGrab} from "./classes/stream/streamKeyGrab";
+import * as jBox from "jbox";
 
 export let mainWsContext = Websocket.instance();
 
@@ -39,10 +42,34 @@ let hostNameButton = null;
 let hostConnectionLoadingIcon = null;
 let hostNotRespondingButton = null;
 let hostControlPanel = null;
+let downloadNewestJarButton = null;
 
 /*TODO podpowiadanie ścieżek w CMD*/
 /*TODO Przeglądarka plików hosta*/
 /*TODO Przejmowanie kontroli przez strumień*/
+
+let downloadNewestJar = function(){
+    fetch(BASE_URL+"getjar")
+        .then(res => res.json())
+        .then(function(result){
+            if(result.filename){
+                new jBox('Notice', {
+                    content: "Pobieranie pliku: "+result.filename,
+                    theme: 'NoticeFancy',
+                    color: "green",
+                });
+                PublicBinding.asyncFileDownload(null, result.url);
+            }else{
+                new jBox('Notice', {
+                    content: "Nie znaleziono żadnej wersji :/",
+                    theme: 'NoticeFancy',
+                    color: "red",
+                });
+            }
+
+        console.log(result);
+    })
+};
 
 let selectTab = (name) => {
     $('#control_tabs').html(
@@ -132,6 +159,23 @@ RConsole.set.onAutocomplete((cmd) => {
     });
 });
 
+bind('setHostCustomName', (inputId, button) => {
+    let hostId = HostManagement.getHostData().id;
+    let input = $('#'+inputId);
+    button = $(button);
+    button.attr('disabled', true);
+
+    $.post(BASE_URL+"api/host/"+hostId, {
+        customName: input.val().trim()
+    }).always(function(res){
+        res = JSON.parse(res);
+        if(res.success){
+            hostNameButton.text(input.val().trim());
+        }
+        button.attr('disabled', false);
+    })
+});
+
 bind('browseHostFiles', () => {
     HostFileBrowser.open();
     HostFileBrowser.setTitle(HostManagement.getHostData().name);
@@ -153,7 +197,7 @@ bind('refreshHostFiles', (button = null) => {
         }
     });
 });
-bind('getHostUplFile', (button, filepath) => {
+bind('asyncFileDownload', (button, filepath) => {
     let frame = $('<iframe></iframe>');
     frame.addClass('d-none');
     frame.prop('src', BASE_URL+filepath);
@@ -176,14 +220,28 @@ bind('useHost', (buttonElement, data) => {
     $(buttonElement).prop('disabled', true);
     hostConnectionLoadingIcon.removeClass('d-none');
     hostNameButton.text("CONNECTING...");
-    HostManagement.manage(data).then((hostname) => {
+    HostManagement.manage(data).then((data) => {
+        let hostname = null;
+        let hostSoftVersion = 'UNKNOWN';
+        let customName = data.custom_name;
+        if(data.payload){
+            hostSoftVersion = data.payload.version;
+            hostname = data.hostname;
+        }else{
+            hostname = data;
+        }
+
         if(hostname){
             hostConnectionLoadingIcon.addClass('d-none');
-            hostNameButton.text(hostname);
+            hostNameButton.text(((customName === null) ? hostname : customName));
             hostNameButton.parent().prop('disabled', false);
             hostControlPanel.html(
                 hostControlPanelTemplate({
-                    host: {}
+                    host: {
+                        version: hostSoftVersion,
+                        hostname: hostname,
+                        custom_name: customName
+                    },
                 })
             );
 
@@ -377,6 +435,7 @@ $(document).ready(function(){
     hostConnectionLoadingIcon = $('#hostConnectionLoading');
     hostNotRespondingButton = $('#hostNotResponding');
     hostControlPanel = $('#host_control_panel');
+    downloadNewestJarButton = $('#downloadNewestJarButton');
 
     hostControlPanel.html(
         hostControlPanelTemplate({
@@ -394,6 +453,8 @@ $(document).ready(function(){
     HostFileBrowser.setContentElement($('#HFB_content'));
 
     $('#wsServerPanelButton').click(() => WsServerPanel.open());
+
+    downloadNewestJarButton.click(downloadNewestJar);
 
     $('#disconnect_host').click(() => disconnectHost());
 

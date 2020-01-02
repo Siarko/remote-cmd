@@ -26,7 +26,7 @@
                 <td>{{this.filename}}</td>
                 <td>{{this.data.path}}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="PublicBinding.getHostUplFile(this, '{{{this.path}}}')">
+                    <button class="btn btn-primary" onclick="PublicBinding.asyncFileDownload(this, '{{{this.path}}}')">
                         <i class="fas fa-download"></i>
                     </button>
                     <button class="btn btn-danger" onclick="PublicBinding.deleteHostUplFile(this, '{{{this.filename}}}')">

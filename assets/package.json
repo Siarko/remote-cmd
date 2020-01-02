@@ -8,11 +8,12 @@
     "bootstrap": "^4.3.1",
     "bootstrap-slider": "^10.6.2",
     "css-loader": "^3.2.0",
+    "jbox": "^1.0.6",
     "jquery": "^3.4.1",
     "style-loader": "^1.0.0"
   },
   "devDependencies": {
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.5.3",
     "handlebars-loader": "^1.7.1",
     "path": "^0.12.7",
     "webpack": "^4.39.3",

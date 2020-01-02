@@ -27,6 +27,10 @@ class Resolver {
     }
 
     private function resolveJson($path, $value){
+        if(is_array($path)){
+            $this->output = $path;
+            return;
+        }
         $ex = explode('.', $path);
         $current = &$this->output;
         foreach ($ex as $p) {

@@ -32,7 +32,7 @@ class DbContext {
                 Deployment::DATABASE['password'],
                 Deployment::DATABASE['database']
             );
-            if(!self::$context){
+            if(mysqli_connect_errno()){
                 echo("MYSQL ERROR - ".mysqli_connect_error());
                 exit();
             }
@@ -46,6 +46,10 @@ class DbContext {
 
     public static function query($sql){
         self::init();
+        if(!self::$context->ping()){
+            self::$context = false;
+            self::init();
+        }
         return self::$context->query($sql);
     }
 
@@ -66,6 +70,10 @@ class DbContext {
 
     public static function getError(){
         return self::$context->error;
+    }
+
+    public static function getErrorNo(){
+        return self::$context->errno;
     }
 
     public static function getInsertedId(){

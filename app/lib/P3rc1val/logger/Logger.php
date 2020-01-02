@@ -37,7 +37,7 @@ class Logger extends SingletonType {
             return true;
         }
         if(in_array($loggerName, $this->enabled)){
-            return true;
+            //return true;
         }
         return false;
     }

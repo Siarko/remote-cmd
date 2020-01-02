@@ -1,6 +1,7 @@
 <?php
 /* @var $this \P3rc1val\templates\TemplateParser*/
     $this->addCssFile('assets/css/MainPanel');
+    $this->addCssFile('assets/css/darkener');
 ?>
 
 <div class="modal" id="wsServerPanel" role="dialog" aria-hidden="true">
@@ -66,6 +67,9 @@
                 </button>
             </div>
             <button class="btn btn-secondary" id="wsServerPanelButton">Panel WS</button>
+            <button class="btn btn-secondary" id="downloadNewestJarButton">
+                <i class="fas fa-download"></i>
+            </button>
         </div>
     </div>
 

@@ -10,7 +10,7 @@ export function manage(hostId){
 
         mainWsContext.registerNotification('host_ready', function(data){
             Log("Host ready");
-            connected = {id: hostId, name: data};
+            connected = {id: hostId, name: data.hostname};
             managedConnectionErr(false);
             success(data);
         });
